@@ -108,10 +108,10 @@ public class resultTable extends JPanel{
 		rs=Dao.selectSQL(sql);
 		try {
 				rs.next();
-				names+=rs.getString(1)+",";
+				names+=rs.getString(1);
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
-				names+="null"+",";
+				names+="null";
 			}
 		}
 		return names;
