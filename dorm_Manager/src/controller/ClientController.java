@@ -91,7 +91,7 @@ import model.*;
 			String time =Dao.df.format(new Date());
 			String note="充值";
 			String sql2 = "insert into bill(billName,billDate,notes,allClientAmount,allClentId,totalmoney,deleteFlag) "
-					+ "values('"+name+"','"+time+"','"+note+"','"+balance+"','"+ClientId+"',"+balance+",'0')";
+					+ "values('"+note+"','"+time+"','新建用户初始金额','"+balance+"','"+ClientId+"',"+balance+",'0')";
 			
 			System.out.println("执行："+sql2);
 			Dao.insertSQL(sql2);

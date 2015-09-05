@@ -157,7 +157,7 @@ public class resultTable extends JPanel{
 				v.add(test.get("personalAmountId"));
 				String billName=getBillNameByBillId((String) test.get("billId").toString());
 				v.add(billName);
-				v.add(test.get("billId"));
+				//v.add(test.get("billId"));
 				String names=getClientNameByClientId((String) test.get("clientId").toString());
 				v.add(names.substring(0, names.length()-1));
 				v.add(test.get("money"));
