@@ -145,7 +145,7 @@ public class EditeBill {
 		BillFrame.getContentPane().add(BorderLayout.CENTER,scrollPane);////初始化一个容器，添加此JPanel
 		BillFrame.getContentPane().add(BorderLayout.SOUTH,OkPanel);////初始化一个容器，添加此JPanel
 		BillFrame.setVisible(true);//立即显示改变	
-		BillFrame.  setSize(800,500);
+		BillFrame.  setSize(800,600);
 	}
 	public class  calcShowActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
