@@ -30,6 +30,8 @@ public class MainInterface {
 	static Font TitleFont=new Font("楷体",Font.BOLD,35);
 	static Font nomalFont=new   Font("Dialog",   1,   25);
 	static Font warnFont=new   Font("Dialog",   1,   25);
+	TestCalc maincalc=new TestCalc();
+	JButton calcShow=new JButton("计算器");
 	JPanel headMasaage=new JPanel();//JPanel 是 Java图形用户界面(GUI)工具包swing中的面板容器类
 	JPanel Manager=new JPanel();//JPanel 是 Java图形用户界面(GUI)工具包swing中的面板容器类
 	JPanel returnArea=new  JPanel();	
@@ -97,10 +99,13 @@ public class MainInterface {
 		Conn.setForeground(Color.red);
 	
 
-	
+		headMasaage.add(calcShow);//调出计算器
+		calcShow.setFont(f);
+		calcShow.addActionListener(new calcShowActionListener());
 		headMasaage.add(ALLmoney);
 		headMasaage.add(Conn);
 		headMasaage.add(Lowmoney);
+		
 		
 		BuildDatabaseJButton.setFont(nomalFont);
 		ALLmoney.setForeground(Color.blue);
@@ -131,6 +136,13 @@ public class MainInterface {
 		theFrame.getContentPane().add(BorderLayout.NORTH,headMasaage);////初始化一个容器，添加此JPanel
 		theFrame.getContentPane().add(BorderLayout.CENTER,Manager);////初始化一个容器，添加此JPanel
 		theFrame.setVisible(true);//立即显示改变		
+	}
+	public class  calcShowActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+		
+			maincalc .setVisible(true);
+		}
 	}
 	/**
 	 * BillManagerListner
