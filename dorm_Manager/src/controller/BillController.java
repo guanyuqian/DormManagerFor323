@@ -35,7 +35,7 @@ public class BillController
 		int i=0;															//计数器
 		
 		/****************************************************************************************/                          	//将ID导入数据库（转换为String）
-		
+		//高圆圆提供有关提高提高
 		
 		String idList = "";													
 		if(ClientIdList.isEmpty()==true) idList="empty";					//若无输入，设置为empty
