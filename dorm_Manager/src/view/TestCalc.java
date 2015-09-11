@@ -44,6 +44,8 @@ class TestCalc extends JFrame implements ActionListener, KeyListener {
  boolean isPressEqualButton = false;
  // 构造函数
  public TestCalc() {
+	 this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//在windows关闭时会把程序结束掉
+
   // 1、绘制计算器的窗体大小
   this.setTitle("个人版的计算器—Calculator");
   this.setSize(400, 400);

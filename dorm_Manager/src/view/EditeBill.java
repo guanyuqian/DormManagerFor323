@@ -130,6 +130,8 @@ public class EditeBill {
 	    JPanel OkPanel=new JPanel();
 		JButton OK = new JButton("确定");
 		OkPanel.add(OK);
+		
+		OK.setFont(MainInterface.f);
 		OK.setFont(MainInterface.f);
 		OK.addActionListener(new OKListner());
 
@@ -140,12 +142,13 @@ public class EditeBill {
 		calcPanel.add(result);
 		calcShow.addActionListener(new calcShowActionListener());
 		BillFrame.getContentPane().add(BorderLayout.NORTH,calcPanel);////初始化一个容器，添加此JPanel
-	
+		calcShow.setFont(MainInterface.f);
 
 		BillFrame.getContentPane().add(BorderLayout.CENTER,scrollPane);////初始化一个容器，添加此JPanel
 		BillFrame.getContentPane().add(BorderLayout.SOUTH,OkPanel);////初始化一个容器，添加此JPanel
 		BillFrame.setVisible(true);//立即显示改变	
 		BillFrame.  setSize(800,600);
+		
 	}
 	public class  calcShowActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {

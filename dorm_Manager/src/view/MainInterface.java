@@ -36,6 +36,9 @@ public class MainInterface {
 	JPanel Manager=new JPanel();//JPanel 是 Java图形用户界面(GUI)工具包swing中的面板容器类
 	JPanel returnArea=new  JPanel();	
 	JButton returnToMainInterface =new JButton("返回");//声明开始按钮
+	
+
+	
 	AddBill bill=new AddBill();
 	SearchBill searchbill=new SearchBill();
 	JLabel ALLmoney=new JLabel();
@@ -63,6 +66,8 @@ public class MainInterface {
 	 * reviewToMainInterface:返回到主界面的函数
 	 */
 	public void reviewToMainInterface(){	
+		returnToMainInterface.setFont(MainInterface.f);
+		
 		theFrame.getContentPane().removeAll();
 		theFrame.getContentPane().repaint();
 		theFrame.getContentPane().validate();

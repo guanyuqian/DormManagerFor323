@@ -54,6 +54,7 @@ public class AddBill {
 	JButton calcShow=new JButton("计算器");
 	JLabel result=new JLabel();
 	public void showManager(resultTable table){
+		calcShow.setFont(MainInterface.f);
 		result.setText("0");
 		ResultTable=table;
 		BillFrame.getContentPane().removeAll();
@@ -116,6 +117,7 @@ public class AddBill {
 //		BillPanel.add();//将按钮集合放到EAST
 	    JPanel OkPanel=new JPanel();
 		JButton OK = new JButton("确定");
+		OK.setFont(MainInterface.f);
 		OkPanel.add(OK);
 		OK.setFont(MainInterface.f);
 		OK.addActionListener(new OKListner());

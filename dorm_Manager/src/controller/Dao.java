@@ -22,7 +22,7 @@ public class Dao {
 			      "dorm varchar(50) not null ,"+ 
 			      "clientBalance float(10, 2)  Not null ,"+
 			      "deleteFlag TINYINT  NOT NULL ,"+
-			      "primary key (clientId));";
+			      "primary key (clientId)) utf8 collate utf8_general_ci;";
 	}
 	static public String buildPersonalAmountTable(){
 		return "create table personalAmount( "+
@@ -31,7 +31,7 @@ public class Dao {
 	    	      "clientId INT(20) not null ,"+ 
 	    	      "money float(10, 2) not null ,"+ 
 	    	      "deleteFlag TINYINT  NOT NULL ,"+
-	    	      "primary key (personalAmountId));";
+	    	      "primary key (personalAmountId)) utf8 collate utf8_general_ci;";
 	}
 	static public String buildBillTable(){
 		return "create table bill( "+
@@ -43,7 +43,7 @@ public class Dao {
 	      		 "allClientAmount varchar(50) not null ,"+ 
 	      		 "totalMoney float(10, 2) not null ,"+ 
 	    	      "deleteFlag TINYINT  NOT NULL ,"+
-	    	      "primary key (billId));";
+	    	      "primary key (billId)) utf8 collate utf8_general_ci;";
 	}
 	static public boolean buildClientTable(String database) {	
     Connection newConn = null;

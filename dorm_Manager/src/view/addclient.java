@@ -62,6 +62,7 @@ public class addclient {
 		JButton OK = new JButton("确定");
 		OkPanel.add(OK);
 		OK.setFont(MainInterface.f);
+		OK.setFont(MainInterface.f);
 		OK.addActionListener(new OKListner());
 		ClientFrame.setSize(500,250);
 		ClientFrame.getContentPane().add(BorderLayout.CENTER,ClientPanel);////初始化一个容器，添加此JPanel
