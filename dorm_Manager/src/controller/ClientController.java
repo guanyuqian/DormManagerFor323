@@ -66,11 +66,11 @@ import model.*;
 		
 			
 			//在Client表中创建用户
-			String sql1 = "insert into Client(clientName,dorm,clientBalance,deleteFlag) "
+			String sql1 = "insert into client(clientName,dorm,clientBalance,deleteFlag) "
 					+ "values('"+name+"','"+dorm+"','"+balance+"','0')";
 			System.out.println("执行："+sql1);
 			Dao.insertSQL(sql1);
-			Dao.print("Client");
+		
 			
 			//获得创建用户的Id
 			String clientIdSql = "SELECT LAST_INSERT_ID() from client;";
@@ -127,7 +127,7 @@ import model.*;
 		//删除用户   用户Id（String）
 		public boolean delete(String clientId)
 		{
-			String delete_client="update Client set deleteFlag='1' where clientid='"+clientId+"'";
+			String delete_client="update client set deleteFlag='1' where clientid='"+clientId+"'";
 			System.out.println("删除"+delete_client);
 			return Dao.deleteSQL(delete_client);
 			
@@ -138,7 +138,7 @@ import model.*;
 		{
 			if(isRename(name_to_change)==true) return false;
 			
-			String update_client = "update Client set clientname='"+name_to_change+"' where clientid= '"+id+"'";
+			String update_client = "update client set clientname='"+name_to_change+"' where clientid= '"+id+"'";
 			return Dao.updateSQL(update_client);
 		}
 		
@@ -159,20 +159,19 @@ import model.*;
 			
 			balance=""+(Double.parseDouble(balance)+Double.parseDouble(amount));
 			
-			String update_balance = "update Client set clientbalance='"+balance+"' where clientid= '"+id+"'";
+			String update_balance = "update client set clientbalance='"+balance+"' where clientid= '"+id+"'";
 			return Dao.updateSQL(update_balance);
 			
 			
 		}
 		
 		static public ArrayList getLowMoney(){
-			ArrayList rs=Dao.loadData("CLIENT"," CLIENTNAME,CLIENTBALANCE ","  WHERE(DELETEFLAG = 0 AND CLIENTBALANCE <= 10)");
-		
+			ArrayList rs=Dao.loadData("client"," CLIENTNAME,CLIENTBALANCE ","  WHERE(DELETEFLAG = 0 AND CLIENTBALANCE <= 10)");
 			return rs;
 			
 		}
 		static public float getAllMoney(){
-			String sql="SELECT CLIENTBALANCE FROM CLIENT WHERE DELETEFLAG = 0";
+			String sql="SELECT CLIENTBALANCE FROM `client` WHERE DELETEFLAG = 0";
 			if(!Dao.connSQL()){
 				System.err.println("数据库连接失败");
 			};

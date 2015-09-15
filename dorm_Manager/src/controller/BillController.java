@@ -284,7 +284,7 @@ public class BillController
 		/********************************************************************************************/                            //删除
 		
 		
-		String delete_bill="update Bill set deleteFlag='1' where billId='"+billId+"'";
+		String delete_bill="update bill set deleteFlag='1' where billId='"+billId+"'";
 		System.out.println("删除"+delete_bill);
 		Dao.deleteSQL(delete_bill);
 		
@@ -398,11 +398,11 @@ public class BillController
 		
 		
 																										//update 账单名
-			String update_bill_name = "update Bill set billname ='"+newBillName+"' where billid= '"+billId+"'";
+			String update_bill_name = "update bill set billname ='"+newBillName+"' where billid= '"+billId+"'";
 			Dao.updateSQL(update_bill_name);
 
 																											//update 账单备注
-			String update_bill_notes = "update Bill set notes ='"+newNotes+"' where billid= '"+billId+"'";
+			String update_bill_notes = "update bill set notes ='"+newNotes+"' where billid= '"+billId+"'";
 			Dao.updateSQL(update_bill_notes);
 	
 		if(ClientIdList.isEmpty()==false){																						//update 账单Id
@@ -445,7 +445,7 @@ public class BillController
 			deleteBill(billId);
 			String sql_delete = "delete from bill where billid = '" + billId + "' ";
 			Dao.deleteSQL(sql_delete);
-			String update_bill_clientid = "update Bill set allclentId ='"+clientList+"' where billid= '"+billId+"'";
+			String update_bill_clientid = "update bill set allclentId ='"+clientList+"' where billid= '"+billId+"'";
 			Dao.updateSQL(update_bill_clientid);
 			String sql_delete_personalamount = "delete from personalamount where billid = '" + billId + "' ";
 			Dao.deleteSQL(sql_delete_personalamount);

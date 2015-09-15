@@ -168,7 +168,7 @@ public class MainInterface {
 		resultTable BillTable;
 		
 		public void reviewToBillManager(){
-			BillTable=new resultTable("Bill");
+			BillTable=new resultTable("bill");
 			theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//在windows关闭时会把程序结束掉
 			Manager.setFont(f);
 			Manager.setLayout(new GridLayout(1,4,10,10));

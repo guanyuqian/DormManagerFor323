@@ -11,10 +11,10 @@ public class Dao {
     public static Connection conn = null;
     static PreparedStatement statement = null;
     static String mysqlDriver = "com.mysql.jdbc.Driver";
-    static String newUrl = "jdbc:mysql://localhost:3306/";
+    static String newUrl = "jdbc:mysql://55f7d4e50bc29.sh.cdb.myqcloud.com:15623/";
     static String username = "root";
-    static String password = "root";
-	static String url = "jdbc:mysql://localhost:3306/dormmanager?characterEncoding=UTF-8"; // 数据库地址，端口，数据库名称，字符集
+    static String password = "mysql@323";
+	static String url = "jdbc:mysql://55f7d4e50bc29.sh.cdb.myqcloud.com:15623/dormmanager?characterEncoding=UTF-8"; // 数据库地址，端口，数据库名称，字符集
 	static public String buildClientTable(){
 		return "create table Client ( "+
 			      "clientId INT(20) not null AUTO_INCREMENT," + 
@@ -98,6 +98,7 @@ public class Dao {
     
     public static boolean connSQL() {
         try {
+            System.err.println("装载 JDBC/ODBC 驱动程序。");
             Class.forName("com.mysql.jdbc.Driver"); // 加载驱动，必须导入包mysql-connector-java-5.1.6-bin.jar
             conn = DriverManager.getConnection(url, username, password);
         }
@@ -141,12 +142,12 @@ public class Dao {
             rs = statement.executeQuery(sql);
         } catch (SQLException e) {
         	System.err.println(sql+"执行失败（数据库连接失败）");
-            //e.printStackTrace();
+            e.printStackTrace();
             return null;
         }
         catch (Exception e) {
         	System.err.println(sql+"执行失败（数据库连接失败）");
-            //e.printStackTrace();
+            e.printStackTrace();
             return null;
         }
         return rs;
@@ -327,7 +328,7 @@ public class Dao {
 //        String time =df.format(new Date());    
         
         
-        String s = "select * from Client";
+        String s = "SELECT * FROM `client`";
         
 //        String insert = "insert into personalAmount(billId,clientId,money,deleteFlag) "
 //				+ "values('1','2','-10','0'),('1','3','-20','0'),('1','4','-30','0');";
@@ -341,11 +342,12 @@ public class Dao {
 //        String update = "update Client set clientBalance =clientBalance-30 where clientid= '4'";
 //        String insert ="alter table bill add totalMoney INT  Null after allClientAmount;";
 //        String insert ="ALTER TABLE bill MODIFY  totalMoney INT NOT NULL;  ";
-    /*  if (dao.insertSQL(insert) == true) {
-            System.out.println("插入成功");
-            ResultSet resultSet = dao.selectSQL(s);
-            dao.print(resultSet);
-        }*/
+//      if (dao.insertSQL(insert) == true) {
+//            System.out.println("插入成功");
+//            ResultSet resultSet = dao.selectSQL(s);
+//            dao.print(resultSet);
+//        }
+      ResultSet resultSet = dao.selectSQL(s);
     /*  if (dao.updateSQL(update) == true) {
             System.out.println("更新成功");
             ResultSet resultSet = dao.selectSQL(s);
@@ -443,7 +445,7 @@ public class Dao {
    }
     static public ArrayList loadData(String table,String field,String Condition){
       	 System.out.println(" loadData(String table);");
-      	String sql = "select "+field+" from "+table+" "+Condition+" order by "+table+".deleteFlag;";
+      	String sql = "select "+field+" from "+table.toLowerCase()+" "+Condition+" order by "+table+".deleteFlag;";
       	ResultSet rs=selectSQL(sql);
       	ArrayList list = new ArrayList();
 

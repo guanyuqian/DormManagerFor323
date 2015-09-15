@@ -45,7 +45,7 @@ public class resultTable extends JPanel{
 	JTable resultdata;
 	String[] tableHeads;
 	public resultTable(String table){
-	Table =table;
+	Table =table.toLowerCase();
 	int lengthOfField;
 	init();
 	}
@@ -188,7 +188,7 @@ public class resultTable extends JPanel{
 		    		  condition ="where clientid = "+Id;
 		    	  else
 		    		  condition ="where billid = "+Id;
-		    	  resultTable amountTable = new resultTable("personalAmount",condition);
+		    	  resultTable amountTable = new resultTable("personalamount",condition);
 		    	  new personalAmountShow().show(amountTable);
 		                    //你可以在這里再進行是點擊哪一行的判斷
 		                }
