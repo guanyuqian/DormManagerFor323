@@ -95,7 +95,7 @@ import model.*;
 			
 			System.out.println("执行："+sql2);
 			Dao.insertSQL(sql2);
-			Dao.print("Bill");
+
 			
 			String billIdSql = "SELECT LAST_INSERT_ID() from bill;";
 			String billId = null;
@@ -109,12 +109,12 @@ import model.*;
 				e.printStackTrace();
 			}
 			
-			String sql3 = "insert into personalAmount(billId,clientId,money,deleteFlag) "
+			String sql3 = "insert into personalamount(billId,clientId,money,deleteFlag) "
 					+ "values('"+billId+"','"+ClientId+"','"+balance+"','0')";
 			
 			System.out.println("执行："+sql3);
 			Dao.insertSQL(sql3);
-			Dao.print("PersonalAmount");
+
 			return true;
 		}
 		

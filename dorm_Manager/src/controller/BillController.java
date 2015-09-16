@@ -96,7 +96,7 @@ public class BillController
 		if(!Dao.insertSQL(sql2)){
 			return false;
 		}
-		Dao.print("Bill");//打印检查
+
 		
 		
 		/************************************************************************************************/
@@ -121,14 +121,14 @@ public class BillController
 		String sql3;
 		for(i=0;i<AllClientAmount.size();i++)
 		{
-		sql3 = "insert into personalAmount(billId,clientId,money,deleteFlag) "
+		sql3 = "insert into personalamount(billId,clientId,money,deleteFlag) "
 				+ "values('"+billId+"','"+ClientIdList.get(i)+"','"+AllClientAmount.get(i)+"','0')";
 		
 		if(!Dao.insertSQL(sql3)){
 			return false;
 		};
 		}
-		Dao.print("PersonalAmount");
+
 		String ClientId;
 		String balance;
 		for(i=0;i<ClientIdList.size();i++)
@@ -137,7 +137,7 @@ public class BillController
 			balance=AllClientAmount.get(i);
 			ClientController.update_Amount(ClientId, balance);		
 		}
-		Dao.print("PersonalAmount");
+
 		
 		
 		/********************************************************************************************/                            //
@@ -217,7 +217,7 @@ public class BillController
 				+ "values('"+billId+"','"+billName+"','"+time+"','"+notes+"','"+amountList+"','"+idList+"',"+totalMoney1+",'0')";
 		System.out.println("执行："+sql2);
 		Dao.insertSQL(sql2);
-		Dao.print("Bill");//打印检查
+
 		
 		
 		/************************************************************************************************/
@@ -231,12 +231,12 @@ public class BillController
 		String sql3;
 		for(i=0;i<AllClientAmount.size();i++)
 		{
-		sql3 = "insert into personalAmount(billId,clientId,money,deleteFlag) "
+		sql3 = "insert into personalamount(billId,clientId,money,deleteFlag) "
 				+ "values('"+billId+"','"+ClientIdList.get(i)+"','"+AllClientAmount.get(i)+"','0')";
 		
 		Dao.insertSQL(sql3);
 		}
-		Dao.print("PersonalAmount");
+
 		String ClientId;
 		String balance;
 		for(i=0;i<ClientIdList.size();i++)
@@ -245,7 +245,7 @@ public class BillController
 			balance=AllClientAmount.get(i);
 			ClientController.update_Amount(ClientId, balance);		
 		}
-		Dao.print("PersonalAmount");
+
 		
 		
 		/********************************************************************************************/                            //

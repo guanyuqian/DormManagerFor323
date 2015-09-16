@@ -77,8 +77,8 @@ public class AddBill {
 	    billNameText.setFont(MainInterface.f);
 	    billName.setFont(MainInterface.f);
 	    String getNoDeleteSql="where deleteFlag=0";
-		ArrayList clientNames=Dao.loadData("Client", "ClientName",getNoDeleteSql);//拿到client中的clientname字段
-		ArrayList clientIds=Dao.loadData("Client", "clientId",getNoDeleteSql);//拿到client中的clientname字段
+		ArrayList clientNames=Dao.loadData("client", "clientName",getNoDeleteSql);//拿到client中的clientname字段
+		ArrayList clientIds=Dao.loadData("client", "clientId",getNoDeleteSql);//拿到client中的clientname字段
 	
 		clientId=new String[clientIds.size()];
 		clientName=new JLabel[clientNames.size()];
