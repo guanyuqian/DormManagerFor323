@@ -72,9 +72,12 @@ public class SearchBill {
 	public class  OKListner implements ActionListener{
 
 	public void actionPerformed(ActionEvent arg0) {
-			String Key=statusText.getText();
+			String Key=statusText.getText().substring(0,statusText.getText().length());
+			String sql="where (`billname` like '%"+Key+"%' or `notes` like '%"+Key+"%'  or `totalmoney` like '%"+Key+"%'  or `allClientamount` like '%"+Key+"%'  or  `allClentid` like  '%"+Key+"%'  )";
+					
+			
 			//searchbill(Key);
-			ResultTable.searchTable("WHERE()");
+			ResultTable.searchTable(sql);
 			BillFrame.dispose();
 		}//开始按钮监听器，
 	}
