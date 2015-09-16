@@ -445,7 +445,7 @@ public class Dao {
    }
     static public ArrayList loadData(String table,String field,String Condition){
       	 System.out.println(" loadData(String table);");
-      	String sql = "select "+field+" from "+table.toLowerCase()+" "+Condition+" order by "+table+".deleteFlag;";
+      	String sql = "select "+field+" from "+table.toLowerCase()+" "+Condition+" order by "+table+".deleteflag;";
       	ResultSet rs=selectSQL(sql);
       	ArrayList list = new ArrayList();
 

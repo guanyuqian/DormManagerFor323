@@ -84,7 +84,6 @@ public class MainInterface {
 		headMasaage.removeAll();
 		headMasaage.repaint();
 		headMasaage.validate();
-		
 		try{
 			if(!Conn.getText().equals(""))headMasaage.add(BuildDatabaseJButton);
 			else headMasaage.remove(BuildDatabaseJButton);

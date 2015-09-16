@@ -6,6 +6,7 @@ import java.awt.Window;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -168,6 +169,22 @@ public class resultTable extends JPanel{
 			return;
 		}
 	}
+	public void searchTable(String sql) {//通过传递sql语句选择表格
+		System.out.println("searchTable");
+		removeAll();
+		//setFont(new Font("宋体",Font.BOLD,30));
+		setLayout(new BorderLayout());
+		Condition=sql;
+		resultdata=createTable();
+		resultdata.setFont(lineFont);
+		resultdata.setRowHeight(30);//设置行高
+		resultdata.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane scrollPane = new JScrollPane(resultdata); 
+		add(scrollPane);
+		repaint();
+		validate();
+		
+	}
 	public JTable createTable() {
 	JTable table = new JTable(){
 		   public boolean isCellEditable(int row, int column) { 
@@ -201,6 +218,7 @@ public class resultTable extends JPanel{
 		resultData=Dao.loadData(Table);
 	}
 	else{
+		System.out.println("Condition"+Condition);
 		resultData=Dao.loadData(Table,"*",Condition);
 	}
 	tableHeads = Dao.getFieldNameForTable(Table);
